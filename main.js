@@ -30,7 +30,6 @@ module.exports.loop = function () {
         Game.cpu.generatePixel();
     }
 
-    console.log(config.builderParts);
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var bigHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'bigHarvester');
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
@@ -56,7 +55,7 @@ module.exports.loop = function () {
 
 
 
-    if(harvesters.length < 1) {
+    if(harvesters.length < config.harvesters) {
 
         var newName = 'Harvester' + Game.time;
 
@@ -81,7 +80,7 @@ module.exports.loop = function () {
 
     }
     
-    if(builders.length < 2) {
+    if(builders.length < config.builders) {
 
         var newName = 'Builder' + Game.time;
 
@@ -95,7 +94,7 @@ module.exports.loop = function () {
     
     
 
-    if(upgraders.length < 2) {
+    if(upgraders.length < config.upgraders) {
 
         var newName = 'upgrader' + Game.time;
 
@@ -122,7 +121,7 @@ module.exports.loop = function () {
     
     
     
-    if(roadRepairers.length < 1) {
+    if(roadRepairers.length < config.repairers) {
 
         var newName = 'Roadrepairer' + Game.time;
 
